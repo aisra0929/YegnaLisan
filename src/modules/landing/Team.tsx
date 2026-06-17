@@ -16,6 +16,7 @@ interface TeamMember {
   stats: { label: string; val: string }[];
   languages: string[];
   avatarUrl?: string;
+  avatarResolved?: string;
 }
 
 const teamList: TeamMember[] = [
@@ -79,17 +80,43 @@ export default function Team({ activeTheme = 'dark', activeLanguage = 'ENG' }: T
   const [team, setTeam] = useState<TeamMember[]>(teamList);
 
   useEffect(() => {
-    fetch('/api/team')
-      .then(res => {
-        if (res.ok) return res.json();
-        throw new Error('Fallback code active');
-      })
-      .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-          setTeam(data);
+    const resolveAvatars = async (items: TeamMember[]) => {
+      return Promise.all(items.map(async (m) => {
+        const candidates: string[] = [];
+        if (m.avatarUrl) candidates.push(m.avatarUrl);
+        // try a conventional filename based on first name
+        const slug = m.name.split(' ')[0].toLowerCase();
+        candidates.push(`/assets/images/${slug}.jpg`);
+
+        for (const url of candidates) {
+          try {
+            const resp = await fetch(url, { method: 'HEAD' });
+            if (resp && resp.ok) {
+              return { ...m, avatarResolved: url } as TeamMember;
+            }
+          } catch (e) {
+            // ignore and try next candidate
+          }
         }
-      })
-      .catch(() => {});
+
+        // no image found; keep undefined to render initials
+        return { ...m, avatarResolved: undefined } as TeamMember;
+      }));
+    };
+
+    (async () => {
+      try {
+        const res = await fetch('/api/team');
+        if (!res.ok) throw new Error('Fallback code active');
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          const resolved = await resolveAvatars(data);
+          setTeam(resolved);
+        }
+      } catch (e) {
+        // keep default teamList (initials)
+      }
+    })();
   }, []);
 
   return (
@@ -132,9 +159,9 @@ export default function Team({ activeTheme = 'dark', activeLanguage = 'ENG' }: T
               {/* Top Section - Image Centered in a Circle */}
               <div className="flex flex-col items-center w-full">
                 <div className="relative w-24 h-24 rounded-full border border-blue-500/10 bg-slate-950 flex items-center justify-center overflow-hidden mb-6 shadow-md shadow-blue-500/5 group">
-                  {m.avatarUrl ? (
+                  {m.avatarResolved ? (
                     <img 
-                      src={m.avatarUrl} 
+                      src={m.avatarResolved} 
                       alt={m.name} 
                       className="w-full h-full object-cover object-top transition duration-550 hover:scale-110"
                       referrerPolicy="no-referrer"
