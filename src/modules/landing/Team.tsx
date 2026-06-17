@@ -28,7 +28,7 @@ const teamList: TeamMember[] = [
     languages: ["Amharic", "English", "Tigrinya"],
     avatarResolved: '/assets/images/aman.jpg',
     stats: [
-      { label: "Experience", val: "12+ Yrs" },
+      { label: "Experience", val: "4+ Yrs" },
       { label: "Audits", val: "2,400+" }
     ]
   },
@@ -41,7 +41,7 @@ const teamList: TeamMember[] = [
     languages: ["Amharic", "English", "Oromo"],
     avatarResolved: '/assets/images/nahom.jpg',
     stats: [
-      { label: "Experience", val: "10+ Yrs" },
+      { label: "Experience", val: "5+ Yrs" },
       { label: "Projects", val: "1,800+" }
     ]
   },
@@ -54,7 +54,7 @@ const teamList: TeamMember[] = [
     languages: ["Amharic", "English"],
     avatarResolved: '/assets/images/zereyakob.jpg',
     stats: [
-      { label: "Experience", val: "14+ Yrs" },
+      { label: "Experience", val: "4+ Yrs" },
       { label: "Contracts", val: "140+" }
     ]
   },
@@ -67,7 +67,7 @@ const teamList: TeamMember[] = [
     languages: ["Amharic", "English", "Somali"],
     avatarResolved: '/assets/images/yeadonay.jpg',
     stats: [
-      { label: "Experience", val: "8 Yrs" },
+      { label: "Experience", val: "2 Yrs" },
       { label: "Coordinated", val: "3,200+" }
     ]
   }
