@@ -67,7 +67,7 @@ const teamList: TeamMember[] = [
     languages: ["Amharic", "English", "Somali"],
     avatarResolved: '/assets/images/yeadonay.jpg',
     stats: [
-      { label: "Experience", val: "2 Yrs" },
+      { label: "Experience", val: "2+ Yrs" },
       { label: "Coordinated", val: "3,200+" }
     ]
   }
