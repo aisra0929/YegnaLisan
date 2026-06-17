@@ -307,7 +307,9 @@ export default function Contact({ activeTheme = 'dark', activeLanguage = 'ENG' }
               : 'Copyright © 2026 YEGNA LISAN PLC. All rights reserved.'}
           </span>
           <span className="text-right">
-            Developed By Israel Seyoum
+            {activeLanguage === 'AMH' 
+              ? 'በእስራኤል ስዩም የተሰራ' 
+              : 'Developed By Israel Seyoum'}
           </span>
         </div>
       </div>
