@@ -251,7 +251,7 @@ export default function App() {
           <a href="#home" className="flex items-center gap-2.5 group">
             <div className="w-8 h-8 rounded-xl overflow-hidden border border-white/10 bg-slate-950 flex items-center justify-center shadow shadow-blue-500/5 text-white font-mono font-black text-xs">
               <img 
-                src={activeTheme === 'dark' ? '/src/assets/images/logo_transparent_dark.png' : '/src/assets/images/logo_transparent_light.png'} 
+                src={activeTheme === 'dark' ? '/src/assets/images/logo.jpg' : '/src/assets/images/logo.jpg'} 
                 alt="Logo" 
                 className="w-full h-full object-cover" 
                 referrerPolicy="no-referrer"
