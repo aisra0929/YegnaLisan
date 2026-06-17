@@ -80,26 +80,40 @@ export default function Team({ activeTheme = 'dark', activeLanguage = 'ENG' }: T
   const [team, setTeam] = useState<TeamMember[]>(teamList);
 
   useEffect(() => {
+    const loadImage = (url: string) => {
+      return new Promise<boolean>((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = url;
+      });
+    };
+
     const resolveAvatars = async (items: TeamMember[]) => {
       return Promise.all(items.map(async (m) => {
         const candidates: string[] = [];
         if (m.avatarUrl) candidates.push(m.avatarUrl);
-        // try a conventional filename based on first name
+
         const slug = m.name.split(' ')[0].toLowerCase();
-        candidates.push(`/assets/images/${slug}.jpg`);
+        // try common extensions and both absolute and relative paths
+        const exts = ['jpg', 'jpeg', 'png', 'webp'];
+        for (const ext of exts) {
+          candidates.push(`/assets/images/${slug}.${ext}`);
+          candidates.push(`assets/images/${slug}.${ext}`);
+          candidates.push(`/src/assets/images/${slug}.${ext}`);
+        }
 
         for (const url of candidates) {
           try {
-            const resp = await fetch(url, { method: 'HEAD' });
-            if (resp && resp.ok) {
+            const ok = await loadImage(url);
+            if (ok) {
               return { ...m, avatarResolved: url } as TeamMember;
             }
           } catch (e) {
-            // ignore and try next candidate
+            // continue to next candidate
           }
         }
 
-        // no image found; keep undefined to render initials
         return { ...m, avatarResolved: undefined } as TeamMember;
       }));
     };
