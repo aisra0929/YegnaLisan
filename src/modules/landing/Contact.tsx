@@ -298,12 +298,17 @@ export default function Contact({ activeTheme = 'dark', activeLanguage = 'ENG' }
         </div>
 
         {/* Legal Disclaimer Footer */}
-        <div className={`mt-20 pt-8 border-t text-center text-xs font-sans ${
+        <div className={`mt-20 pt-8 border-t text-xs font-sans flex items-center justify-between ${
           isDark ? 'border-white/5 text-slate-600' : 'border-slate-200 text-slate-400'
         }`}>
-          {activeLanguage === 'AMH' 
-            ? 'የቅጂ መብት © 2026 የኛ ልሳን ትራንስሌሽን። መብቱ በህግ የተጠበቀ ነው። የተረጋገጠ ህጋዊ ትርጉም ስነ-ምህዳር።' 
-            : 'Copyright © 2026 YEGNA LISAN PLC. All rights reserved. Sworn Certification translation ecosystem.'}
+          <span>
+            {activeLanguage === 'AMH' 
+              ? 'የቅጂ መብት © 2026 የኛ ልሳን ትራንስሌሽን። መብቱ በህግ የተጠበቀ ነው። የተረጋገጠ ህጋዊ ትርጉም ስነ-ምህዳር።' 
+              : 'Copyright © 2026 YEGNA LISAN PLC. All rights reserved.'}
+          </span>
+          <span className="text-right">
+            Developed By Israel Seyoum
+          </span>
         </div>
       </div>
     </section>
