@@ -390,7 +390,7 @@ let teamMembers = [
     desc: "Spearheading strategic management, external partnerships, and enterprise translations QA control protocols.",
     gradient: "from-blue-600 to-indigo-600",
     languages: ["Amharic", "English", "Tigrinya"],
-    avatarUrl: "/src/assets/images/aman.jpg",
+    avatarUrl: "/assets/images/aman.jpg",
     stats: [
       { label: "Experience", val: "12+ Yrs" },
       { label: "Audits", val: "2,400+" }
@@ -403,7 +403,7 @@ let teamMembers = [
     desc: "Overseeing operations, workflow automation, and specialized technology/engineering translations accuracy.",
     gradient: "from-cyan-600 to-blue-600",
     languages: ["Amharic", "English", "Oromo"],
-    avatarUrl: "/src/assets/images/nahom.jpg",
+    avatarUrl: "/assets/images/nahom.jpg",
     stats: [
       { label: "Experience", val: "10+ Yrs" },
       { label: "Projects", val: "1,800+" }
@@ -416,7 +416,7 @@ let teamMembers = [
     desc: "Directing financial structures, freelancer payroll distribution, global project billing, and fiscal modeling.",
     gradient: "from-purple-600 to-indigo-600",
     languages: ["Amharic", "English"],
-    avatarUrl: "/src/assets/images/zereyakob.jpg",
+    avatarUrl: "/assets/images/zereyakob.jpg",
     stats: [
       { label: "Experience", val: "14+ Yrs" },
       { label: "Contracts", val: "140+" }
@@ -429,7 +429,7 @@ let teamMembers = [
     desc: "Specialized in Legal agreements research, corporate documents coordination, and liaison for translation workflow schedules.",
     gradient: "from-teal-600 to-emerald-600",
     languages: ["Amharic", "English", "Somali"],
-    avatarUrl: "/src/assets/images/yeadonay.jpg",
+    avatarUrl: "/assets/images/yeadonay.jpg",
     stats: [
       { label: "Experience", val: "8 Yrs" },
       { label: "Coordinated", val: "3,200+" }
