@@ -1,0 +1,6 @@
+{
+  "name": "Yegna Lisan Translation",
+  "description": "A modular translation management ecosystem with bento-grid services, modern glassmorphic UI, freelancer onboarding, client portals, and secure JWT auth.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
